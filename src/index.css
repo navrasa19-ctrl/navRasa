@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===============================
+   GLOBAL BASE STYLES
+================================ */
+
+@layer base {
+  html {
+    font-family: "Poppins",  sans-serif;
+    font-weight: 500;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3 {
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+
+/* ===============================
+   TYPING CARET
+================================ */
+
+.caret::after {
+  content: "|";
+  margin-left: 6px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ===============================
+   REVEAL ON SCROLL
+================================ */
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-on-scroll {
+  animation: slideUp 0.9s ease forwards;
+}
+
+/* ===============================
+   MVP MODULAR BACKGROUND SYSTEM
+================================ */
+
+.mvp-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #0e1117; /* dark graphite (not pure black) */
+  z-index: -3;
+  overflow: hidden;
+}
+
+/* Grid */
+.mvp-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 72px 72px;
+  opacity: 0.8;
+}
+
+/* MVP Blocks */
+.mvp-block {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  background: rgba(34, 211, 238, 0.04);
+  transition: transform 0.25s ease-in-out;
+  opacity: 0.5;
+}
+
+.mvp-block.violet {
+  border-color: rgba(139, 92, 246, 0.35);
+  background: rgba(139, 92, 246, 0.04);
+}
+
+/* Timeline Connector */
+.timeline-line {
+  position: absolute;
+  width: 2px;
+  height: 160px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(34,211,238,0.5),
+    transparent
+  );
+  opacity: 0.6;
+}
+
+/* ===============================
+   ACCENT LINE (ABOUT SECTION)
+================================ */
+
+.gradient-line {
+  height: 12px;
+  width: 120px;
+  background: linear-gradient(90deg, #22d3ee, #8b5cf6);
+}
+/* Snap scrolling */
+.snap-container {
+  scroll-snap-type: y mandatory;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+}
