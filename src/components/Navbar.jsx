@@ -1,4 +1,4 @@
-import Favicon from "../assets/favicon.ico";
+import Favicon from "../assets/navrasa_logo.png";
 
 const Navbar = () => {
   const navItems = [
