@@ -8,13 +8,12 @@ gsap.registerPlugin(ScrollTrigger);
 const SmoothScroll = () => {
   useEffect(() => {
     const lenis = new Lenis({
-      lerp: 0.14,        // snappier (less lag)
+      lerp: 0.12,        
       smoothWheel: true,
-      smoothTouch: false,
-      syncTouch: true,   // better touch response
+      smoothTouch: true,
+      syncTouch: true,   
     });
 
-    // Let GSAP control Lenis
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
     });

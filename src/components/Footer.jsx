@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import Favicon from "../assets/favicon.ico";
 import gsap from "gsap";
+import { useState } from "react";
+import ConsultationModal from "./ConsultationModal";
 import {
   Calendar,
   Send,
@@ -8,10 +10,9 @@ import {
   Mail,
   ArrowRightCircle,
 } from "lucide-react";
-
 const Footer = () => {
   const cardsRef = useRef([]);
-
+  const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
     cardsRef.current.forEach((card) => {
       if (!card) return;
@@ -35,10 +36,14 @@ const Footer = () => {
   }, []);
 
   const items = [
-    { icon: Calendar, title: "Book a consultation", link: "/contact" },
-    { icon: Send, title: "Send me a message", link: "#" },
-    { icon: Phone, title: "Have a chat over the phone", link: "tel:+911234567890" },
-    { icon: Mail, title: "Shoot me an email", link: "mailto:hello@example.com" },
+    {
+      icon: Calendar, title: "Book a consultation", action: () => setOpenModal(true),
+    },
+    {
+      icon: Send, title: "Contact us via whatsapp", link: "https://wa.me/918696256355?text=Hi%20I%20am%20interested", target: "_blank"
+    },
+    { icon: Phone, title: "Have a chat over the phone", link: "tel:+91 6377067867" },
+    { icon: Mail, title: "Shoot me an email", link: "mailto:info@navrasaitsolutions.com" },
   ];
 
   return (
@@ -73,31 +78,36 @@ const Footer = () => {
             {items.map((item, i) => {
               const Icon = item.icon;
 
+              const Wrapper = item.action ? "button" : "a";
+
               return (
-                <a
+                <Wrapper
                   key={i}
-                  href={item.link}
+                  {...(item.link && { href: item.link })}
+                  {...(item.target && { target: item.target })}
+                  onClick={item.action}
                   ref={(el) => (cardsRef.current[i] = el)}
-                  className="group relative border border-black/50 p-6 sm:p-8 flex items-end overflow-hidden transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  className="group relative border border-black/50 p-6 sm:p-8 flex items-end w-full text-left cursor-pointer"
                 >
                   <div className="w-full">
-                    <Icon className="w-5 h-5 mb-4 sm:mb-6 opacity-70" />
+                    <Icon className="w-5 h-5 mb-4 opacity-70" />
 
                     <div className="relative h-[26px] overflow-hidden">
-                      <h3 className="absolute bottom-0 text-sm sm:text-lg font-light transition-all duration-500 group-hover:-translate-y-full group-hover:opacity-0">
+                      <h3 className="absolute bottom-0 text-sm sm:text-lg transition-all group-hover:-translate-y-full">
                         {item.title}
                       </h3>
 
-                      <h3 className="absolute bottom-[-100%] text-sm sm:text-lg font-light transition-all duration-500 group-hover:bottom-0">
+                      <h3 className="absolute bottom-[-100%] text-sm sm:text-lg transition-all group-hover:bottom-0">
                         Let&apos;s go!
                       </h3>
                     </div>
                   </div>
 
-                  <ArrowRightCircle className="footer-arrow w-4 h-4 shrink-0 transition-transform duration-500 group-hover:translate-x-2" />
-                </a>
+                  <ArrowRightCircle className="footer-arrow w-4 h-4" />
+                </Wrapper>
               );
             })}
+
           </div>
         </div>
 
@@ -105,6 +115,11 @@ const Footer = () => {
           ©2026 Your Company. All Rights Reserved.
         </div>
       </div>
+      <ConsultationModal
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+      />
+
     </footer>
   );
 };
