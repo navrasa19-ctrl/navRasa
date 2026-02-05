@@ -68,29 +68,39 @@ const Footer = () => {
             </div>
 
             {/* CONTACT INFO */}
+            {/* CONTACT INFO */}
             <div className="mt-14 sm:mt-20 pl-0 sm:pl-8 lg:pl-16">
               <h4 className="text-sm uppercase tracking-widest text-black/60 mb-4">
-                Contact Illustration
+                Our Location
               </h4>
 
-              <div className="space-y-3 text-sm sm:text-base text-black/80">
+              <div className="space-y-4 text-sm sm:text-base text-black/80">
                 <p className="leading-relaxed">
                   Shyam Nagar, Jaipur,<br />
                   Rajasthan
                 </p>
 
-                <a
-                  href="tel:+916377067867"
-                  className="block hover:text-purple-600 transition"
-                >
-                  +91 63770 67867
-                </a>
+                {/* Google Map */}
+                <div className="overflow-hidden rounded-xl border border-black/10">
+                  <iframe
+                    title="Navrasa IT Solutions Location"
+                    src="https://www.google.com/maps?q=Shyam%20Nagar%20Jaipur%20Rajasthan&output=embed"
+                    width="100%"
+                    height="220"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="grayscale hover:grayscale-0 transition duration-500"
+                  />
+                </div>
 
+                {/* View on Maps */}
                 <a
-                  href="mailto:info@navrasaitsolutions.com"
-                  className="block hover:text-purple-600 transition"
+                  href="https://www.google.com/maps?q=Shyam+Nagar+Jaipur+Rajasthan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-sm text-black/60 hover:text-purple-600 transition"
                 >
-                  info@navrasaitsolutions.com
+                  View on Google Maps →
                 </a>
               </div>
             </div>

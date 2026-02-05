@@ -5,6 +5,7 @@ import Process from "../components/Process";
 import ProjectShowcase from "../components/ProjectShowcase";
 import RecentWorkMarquee from "../components/RecentWorkMarquee";
 import Footer from "../components/Footer";
+import Testimonials from "../components/Testimonial";
 const Home = () => {
   return (
     <div className="bg-[#111] text-white">
@@ -14,6 +15,7 @@ const Home = () => {
       <ProjectShowcase />
       {/* <About /> */}
       <Process />
+      <Testimonials />
       <Footer />
     </div>
   );

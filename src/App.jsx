@@ -3,12 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./components/AuthContext"; 
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home"
-import SmoothScroll from "./pages/SmoothScroll";
+// import SmoothScroll from "./pages/SmoothScroll";
 function App() {
   return (
     <AuthProvider>
       {/* <Navbar /> */}
-      <SmoothScroll />
       <Home />
       <Router>
         <Routes>

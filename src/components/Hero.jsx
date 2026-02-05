@@ -68,6 +68,8 @@ const Hero = () => {
   }, []);
 
  return (
+
+  
   <section className="min-h-[75vh] md:min-h-[85vh] flex items-center justify-center text-center px-4">
     <div
       ref={heroRef}

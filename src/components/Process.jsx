@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SmoothScroll from "../pages/SmoothScroll";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,6 +72,7 @@ const Process = () => {
       ref={sectionRef}
       className="relative bg-[#111] text-white py-24 sm:py-32 lg:py-40"
     >
+      {/* <SmoothScroll /> */}
       <div
         className="
         max-w-5xl mx-auto px-4 sm:px-6

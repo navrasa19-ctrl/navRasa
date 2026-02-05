@@ -8,12 +8,12 @@ gsap.registerPlugin(ScrollTrigger);
 const SmoothScroll = () => {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.1,           // natural momentum
+      duration: 1.2,           
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      smoothTouch: false,      // ❌ disable lag on touch
-      wheelMultiplier: 1,      // 1 = direct feel
-      touchMultiplier: 1.2,    // slightly faster touch
+      smoothTouch: false,      
+      wheelMultiplier: 1.1,      
+      touchMultiplier: 1.2,    
     });
 
     function raf(time) {
